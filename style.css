@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: aquamarine;   
+}
+
+/* centrar las imagenes*/
+.images-container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/*margenes para cada item*/
+.images-container .image{
+    /* position: relative; */
+    margin-right: 10px;
+    margin-left: 10px;
+    display: inline-flex;
+    flex-direction: column;
+}
+/* tamaño de la imagen */
+.images-container .image img{
+    width: 200px;
+    height: 200px;
+    transition: transform 0.3s ease-in-out;
+}
+/* cuadro de color negro del texto */
+.images-container .image .name{
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    display: none;
+    width: 160px;
+    min-width: 150px;
+    position: relative;
+    top: -260px;
+    left: calc(-50% + 100px);
+    padding: 10px 15px;
+}
+/* aparacición del texto */
+.images-container .image:hover .name{
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* texto y toma de precauciones para textos grandes */
+.images-container .image .name .text{
+    /* display: inline-block; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 150px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* triangulo pequeño que aparece junto con el cuadro de texto */
+.images-container .image .name::before{
+    content: "";
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    bottom: -10px;
+    border-top: 10px solid black;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+/* suavizar la animación de la imagen */
+.images-container .image:hover img{
+    transform: translateY(-5px);
+}
+
+@media (max-width: 500px) {
+    .images-container{
+        flex-direction: row;
+        margin-top: 80px;
+    }
+}
